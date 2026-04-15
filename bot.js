@@ -8,8 +8,13 @@ const { Bot, InlineKeyboard, GrammyError, HttpError } = require('grammy');
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const API_BASE = process.env.API_BASE || 'https://spritzmoon-api.onrender.com';
 const ADMIN_ID = parseInt(process.env.ADMIN_ID || '1054120151');
+// COMMUNITY_CHAT_ID can be either a numeric ID (e.g. -1001234567890) or a public username (e.g. @SpritzMoonCryptoToken)
 const COMMUNITY_CHAT_ID = process.env.COMMUNITY_CHAT_ID
-    ? parseInt(process.env.COMMUNITY_CHAT_ID)
+    ? (/^-?\d+$/.test(process.env.COMMUNITY_CHAT_ID.trim())
+        ? parseInt(process.env.COMMUNITY_CHAT_ID.trim())
+        : process.env.COMMUNITY_CHAT_ID.trim().startsWith('@')
+            ? process.env.COMMUNITY_CHAT_ID.trim()
+            : '@' + process.env.COMMUNITY_CHAT_ID.trim())
     : null;
 
 if (!BOT_TOKEN) {
