@@ -1,0 +1,17 @@
+{
+  "name": "spritzmoon-bot",
+  "version": "1.0.0",
+  "description": "SpritzMoon Telegram bot — standalone service",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "grammy": "^1.30.0"
+  },
+  "author": "SpritzMoon Team",
+  "license": "MIT"
+}
